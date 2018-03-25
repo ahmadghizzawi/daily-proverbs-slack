@@ -1,2 +1,1 @@
-# Arabic Proverb 
-
+# Daily Proverbs
