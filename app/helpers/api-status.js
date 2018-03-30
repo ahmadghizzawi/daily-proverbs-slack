@@ -1,16 +1,16 @@
 module.exports = {
-  WELCOME:
+  MESSAGE_SENT:
       {
-        code: 'WELCOME_MESSAGE',
+        code: 'MESSAGE_SENT',
         status: 200,
-        title: 'Welcome to our API!',
-        detail: 'We salute you.',
+        title: 'Message posted',
+        detail: 'Message was posted successfully.',
       },
-  NOT_LOGGED_IN:
+  SERVER_ERROR:
       {
-        code: 'NOT_LOGGED_IN',
-        status: 401,
-        title: 'Unauthorized',
-        detail: 'You are unauthorized to do this',
+        code: 'SERVER_ERROR',
+        status: 500,
+        title: 'An error has occurred',
+        detail: 'An error has occurred on the server.',
       },
 };
