@@ -7,6 +7,7 @@ const Team = require('../models/team');
 
 /**
  *
+ *
  * @param item
  * @return
  * {
@@ -71,16 +72,6 @@ async function runCron(item) {
 /**
  * scheduleJobs - description
  *
- * @param  {type} list
- * {
- *   teamId,
- *   token,
- *   channel,
- *   offsetTime: {
- *     hour,
- *     minute
- *   }
- * }
  * @return {type}      description
  */
 async function scheduleJobs() {

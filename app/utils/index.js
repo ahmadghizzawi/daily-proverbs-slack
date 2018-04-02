@@ -15,6 +15,26 @@ function respond(res, obj, status) {
   });
 }
 
+function isValidTime(hour, minute) {
+  return !(hour < 0 ||
+      hour > 24 ||
+      minute < 0 ||
+      minute >= 60 ||
+      Number.isNaN(minute) ||
+      Number.isNaN(hour));
+}
+
+function isValidOffset(hour, minute) {
+  return !(hour < -12 ||
+      hour > 14 ||
+      minute < 0 ||
+      minute >= 60 ||
+      Number.isNaN(minute) ||
+      Number.isNaN(hour));
+}
+
 module.exports = {
   respond,
+  isValidTime,
+  isValidOffset,
 };

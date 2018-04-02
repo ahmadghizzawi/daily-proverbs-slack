@@ -11,5 +11,6 @@ module.exports = {
     "rules": {
       // Additional, per-project rules...
       "no-underscore-dangle": [2, { "allow": ['_date'] }],
+      "no-console": ["warn", { allow: ["warn", "error"] }]
     }
 };

@@ -1,26 +1,9 @@
 const schedule = require('node-schedule');
 
-const { getProverb } = require('./proverbs');
 const Team = require('../models/team');
+const { getProverb } = require('./proverbs');
 const { rescheduleCron, scheduleCron } = require('../controllers/cron');
-
-function isValidTime(hour, minute) {
-  return !(hour < 0 ||
-      hour > 24 ||
-      minute < 0 ||
-      minute >= 60 ||
-      Number.isNaN(minute) ||
-      Number.isNaN(hour));
-}
-
-function isValidOffset(hour, minute) {
-  return !(hour < -12 ||
-      hour > 14 ||
-      minute < 0 ||
-      minute >= 60 ||
-      Number.isNaN(minute) ||
-      Number.isNaN(hour));
-}
+const { isValidTime, isValidOffset } = require('../utils');
 
 /**
  * slashProverb - prepares response to '/proverb' command in Slack.
@@ -42,7 +25,13 @@ async function slashProverb(body) {
   };
 }
 
-async function slashDailyProverb(body) {
+/**
+ * slashProverbDaily - prepares response to '/proverb-daily' command in Slack.
+ *
+ * @param body
+ * @return {Promise.<*>}
+ */
+async function slashProverbDaily(body) {
   try {
     // Get command params
     const commandText = body.text;
@@ -122,5 +111,5 @@ async function slashDailyProverb(body) {
 
 module.exports = {
   slashProverb,
-  slashDailyProverb,
+  slashDailyProverb: slashProverbDaily,
 };
