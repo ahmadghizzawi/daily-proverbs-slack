@@ -1,6 +1,6 @@
 {
-  "name": "node-express-mongoose-skeleton",
-  "description": "An application skeleton for building web apps using express, and mongoose.",
+  "name": "Daily Proverbs Slack",
+  "description": "A slack app that send random proverbs.",
   "version": "0.0.1",
   "scripts": {
     "start": "pm2 start ecosystem.config.js --watch --env dev",
