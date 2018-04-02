@@ -33,9 +33,9 @@
     "winston": "^2.4.1"
   },
   "devDependencies": {
-    "eslint": "^4.6.0",
-    "eslint-config-airbnb-base": "^12.0.0",
-    "eslint-plugin-import": "^2.7.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.10.0",
     "husky": "^0.14.3",
     "lint-staged": "^4.0.4",
     "pre-commit": "^1.2.2",
@@ -46,6 +46,12 @@
       "eslint --fix",
       "git add"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test",
+      "pre-push": "npm test"
+    }
   },
   "pre-commit": "lint-staged",
   "repository": {
