@@ -1,6 +1,6 @@
 {
   "name": "daily-proverbs-slack",
-  "description": "A slack app that send random proverbs.",
+  "description": "A slack app that sends random proverbs.",
   "version": "0.0.1",
   "scripts": {
     "start": "pm2 start ecosystem.config.js --watch --env dev",
@@ -47,6 +47,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/ahmadghizzawi/node-express-mongoose-skeleton.git"
+    "url": "git://github.com/ahmadghizzawi/daily-proverbs-slack"
   }
 }
