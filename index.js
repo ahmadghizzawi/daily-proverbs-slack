@@ -30,6 +30,7 @@ winston.level = process.env.LOG_LEVEL;
 
 // Configure Raven (Sentry) to report errors.
 raven.config(process.env.SENTRY_DSN).install();
+
 app.use(raven.requestHandler());
 
 app.use(bodyParser.json());
@@ -48,6 +49,9 @@ app.use(validator({
 app.use(cors(corsOptions));
 app.use('/', landing);
 app.use('/slack', slack);
+
+// The error handler must be before any other error middleware
+app.use(raven.errorHandler());
 
 process.on('uncaughtException', (err) => {
   winston.log('crit', err.stack);

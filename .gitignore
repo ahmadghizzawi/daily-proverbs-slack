@@ -64,3 +64,5 @@ config/
 
 .jshintignore
 .jshintrc
+
+.idea/
