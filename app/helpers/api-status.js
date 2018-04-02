@@ -6,6 +6,13 @@ module.exports = {
         title: 'Message posted',
         detail: 'Message was posted successfully.',
       },
+  FORBIDDEN:
+      {
+        code: 'FORBIDDEN',
+        status: 403,
+        title: 'Forbidden Action',
+        detail: 'The request did not come from Slack. Nice try.',
+      },
   SERVER_ERROR:
       {
         code: 'SERVER_ERROR',

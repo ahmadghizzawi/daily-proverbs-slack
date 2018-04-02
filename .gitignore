@@ -61,3 +61,6 @@ typings/
 
 #
 config/
+
+.jshintignore
+.jshintrc

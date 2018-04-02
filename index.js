@@ -7,9 +7,11 @@ const mongoose = require('mongoose');
 const raven = require('raven');
 const winston = require('winston');
 const cors = require('cors');
-const { scheduleCrons } = require('./app/controllers/cron.js')
 
+const { scheduleCrons } = require('./app/controllers/cron.js')
 const landing = require('./app/routes');
+const slack = require('./app/routes/slack');
+
 
 const app = express();
 
@@ -32,6 +34,10 @@ app.use(raven.requestHandler());
 
 app.use(bodyParser.json());
 
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+
 app.use(validator({
   customValidators: {
   },
@@ -40,8 +46,8 @@ app.use(validator({
 }));
 
 app.use(cors(corsOptions));
-
 app.use('/', landing);
+app.use('/slack', slack);
 
 process.on('uncaughtException', (err) => {
   winston.log('crit', err.stack);
@@ -49,6 +55,5 @@ process.on('uncaughtException', (err) => {
 
 app.listen(process.env.LISTENER_PORT, () => {
   winston.log('info', `App is listening on port ${process.env.LISTENER_PORT}`);
-
   scheduleCrons();
 });

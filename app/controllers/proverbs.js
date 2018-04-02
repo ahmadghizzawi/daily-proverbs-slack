@@ -11,7 +11,8 @@ const readFile = util.promisify(fs.readFile);
  * @return {string}         proverb
  */
 function formatProverb(proverb) {
-  return proverb.quote + " \nTranslation/Interpretation: " + proverb.translation;
+  return "*" + proverb.language + " Proverb*\n" + "```" + proverb.quote +
+  " \n\nTranslation/Interpretation: \n" + proverb.translation + "```";
 }
 
 /**
@@ -24,18 +25,22 @@ async function getProverb() {
     // Read the json file that has the proverbs.
     // The will return an array of proverbs.
     data = await readFile('data.json', 'utf8');
+    data = JSON.parse(data);
 
     // Get a random proverb from the array.
     const proverb =  data[Math.floor(Math.random() * data.length)];
 
+    // TODO: make this dynamic
+    proverb.language = 'Arabic';
+    
     return  formatProverb(proverb);
   }
   catch (err) {
-    return false;
     console.log(err);
+    return false;
   }
 }
 
 module.exports = {
-  getProverbs,
+  getProverb,
 };
