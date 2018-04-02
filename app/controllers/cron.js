@@ -5,34 +5,52 @@ const { getProverb } = require('./proverbs');
 const { postMessage } = require('./slack.js');
 const Team = require('../models/team');
 
+/**
+ *
+ * @param item
+ * @return
+ * {
+ *  {
+ *    teamId: (*|type),
+ *    token: *,
+ *    channel: *,
+ *    offsetTime:
+ *    {
+ *      hour: (moment.Moment | number),
+ *      minute: (moment.Moment | number)
+ *    }
+ *  }
+ * }
+ */
 function formatJob(item) {
-  let currentTime = moment();
+  const currentTime = moment();
   currentTime.utcOffset(item.schedule.utcOffset.hour);
   currentTime.set({
-         'hour' : item.schedule.time.hour,
-         'minute' : item.schedule.time.minute,
-         'second' : 0
-      });
+    hour: item.schedule.time.hour,
+    minute: item.schedule.time.minute,
+    second: 0,
+  });
   currentTime.utcOffset(0);
   return {
     teamId: item.teamId,
     token: item.slackToken,
     channel: item.channelId,
-    offsetedTime: {
+    offsetTime: {
       hour: currentTime.hours(),
-      minute: currentTime.minute()
+      minute: currentTime.minute(),
     },
   };
 }
 
-// TODO: Read all pending jobs from DB and execute.
+/**
+ *
+ * @return {Promise.<*>}
+ */
 async function getList() {
-  var list = await Team.find({
-    schedule: { $exists: true }
+  let list = await Team.find({
+    schedule: { $exists: true },
   });
-  list = list.map(item => {
-    return formatJob(item);
-  })
+  list = list.map(item => formatJob(item));
   return list;
 }
 
@@ -43,33 +61,31 @@ async function getList() {
  */
 async function runCron(item) {
   console.log('runCron', item);
-  var j = schedule.scheduleJob(item.teamId, item.offsetedTime.minute + " " +  item.offsetedTime.hour + " * * *", async function() {
+  const j = schedule.scheduleJob(item.teamId, `${item.offsetTime.minute} ${item.offsetTime.hour} * * *`, async () => {
     const proverb = await getProverb();
-    const result = await postMessage(item.token, item.channel, proverb);
+    await postMessage(item.token, item.channel, proverb);
   });
   console.log(j.nextInvocation());
 }
 
 /**
- * scheduleCrons - description
+ * scheduleJobs - description
  *
  * @param  {type} list
  * {
  *   teamId,
  *   token,
  *   channel,
- *   offsetedTime: {
+ *   offsetTime: {
  *     hour,
  *     minute
  *   }
  * }
  * @return {type}      description
  */
-async function scheduleCrons() {
- var list = await getList();
- list.map(item => {
-   runCron(item);
- });
+async function scheduleJobs() {
+  const list = await getList();
+  list.map(item => runCron(item));
 }
 
 
@@ -80,11 +96,11 @@ async function scheduleCrons() {
  * @return {type}        description
  */
 async function rescheduleCron(teamId) {
-  let team = formatJob(await Team.findOne({
-    teamId: teamId
+  const team = formatJob(await Team.findOne({
+    teamId,
   }));
 
-  schedule.scheduledJobs[teamId].reschedule(team.offsetedTime.minute + " " +  team.offsetedTime.hour + " * * *");
+  schedule.scheduledJobs[teamId].reschedule(`${team.offsetTime.minute} ${team.offsetTime.hour} * * *`);
 }
 
 /**
@@ -95,15 +111,15 @@ async function rescheduleCron(teamId) {
  */
 async function scheduleCron(teamId) {
   console.log('scheduleCron', teamId);
-  let team = formatJob(await Team.findOne({
-    teamId: teamId
+  const team = formatJob(await Team.findOne({
+    teamId,
   }));
 
   runCron(team);
 }
 
 module.exports = {
-  scheduleCrons,
+  scheduleJobs,
   rescheduleCron,
-  scheduleCron
+  scheduleCron,
 };

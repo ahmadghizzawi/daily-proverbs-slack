@@ -2,8 +2,8 @@ const express = require('express');
 
 const Status = require('../helpers/api-status');
 const { respond } = require('../utils/index');
-const { postMessage, deleteMessage } = require('../controllers/slack.js')
-const { getProverb } = require('../controllers/proverbs.js')
+const { postMessage } = require('../controllers/slack.js');
+const { getProverb } = require('../controllers/proverbs.js');
 
 const router = express.Router();
 

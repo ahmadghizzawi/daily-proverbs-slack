@@ -10,7 +10,7 @@ const TeamSchema = new mongoose.Schema({
   channelId: String,
   schedule: Object,
 }, {
-  timestamps: true
+  timestamps: true,
 });
 
 /**

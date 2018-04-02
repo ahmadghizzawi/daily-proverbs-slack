@@ -5,10 +5,11 @@ module.exports = {
       "es6": true
     },
     "parserOptions": {
-      "ecmaVersion": 6,
       "sourceType": "module",
+      "ecmaVersion": 2017
     },
     "rules": {
       // Additional, per-project rules...
+      "no-underscore-dangle": [2, { "allow": ['_date'] }],
     }
 };

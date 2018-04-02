@@ -4,7 +4,8 @@
   "version": "0.0.1",
   "scripts": {
     "start": "pm2 start ecosystem.config.js --watch --env dev",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "precommit": "lint-staged"
   },
   "dependencies": {
     "@google-cloud/storage": "^1.6.0",
@@ -37,23 +38,13 @@
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.10.0",
     "husky": "^0.14.3",
-    "lint-staged": "^4.0.4",
+    "lint-staged": "^4.3.0",
     "pre-commit": "^1.2.2",
     "precommit-hook": "^3.0.0"
   },
   "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "git add"
-    ]
+   "*.js": ["eslint --fix", "git add"]
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm test",
-      "pre-push": "npm test"
-    }
-  },
-  "pre-commit": "lint-staged",
   "repository": {
     "type": "git",
     "url": "git://github.com/ahmadghizzawi/node-express-mongoose-skeleton.git"

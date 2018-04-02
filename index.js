@@ -8,7 +8,7 @@ const raven = require('raven');
 const winston = require('winston');
 const cors = require('cors');
 
-const { scheduleCrons } = require('./app/controllers/cron.js')
+const { scheduleJobs } = require('./app/controllers/cron.js');
 const landing = require('./app/routes');
 const slack = require('./app/routes/slack');
 
@@ -36,7 +36,7 @@ app.use(raven.requestHandler());
 app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({
-  extended: true
+  extended: true,
 }));
 
 app.use(validator({
@@ -59,5 +59,5 @@ process.on('uncaughtException', (err) => {
 
 app.listen(process.env.LISTENER_PORT, () => {
   winston.log('info', `App is listening on port ${process.env.LISTENER_PORT}`);
-  scheduleCrons();
+  scheduleJobs();
 });
