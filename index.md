@@ -21,3 +21,6 @@ The Daily Proverbs slack app is free, and does not make use of your user informa
 #### To display a random proverb in channel every day at a specific time:
 `\proverb-daily [time] [UTC offset]`
 
+**Example:**
+You live in Beirut, Lebanon and you currently have an offset of +02:00 UTC. If you want to get the daily proverbs at 13:00 your time, you will type the following: `/proverb-daily 13:00 +02:00`.
+
