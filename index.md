@@ -16,4 +16,4 @@ alt="Slack Logo" width="139" height="40"/> &nbsp;&nbsp;&nbsp;&nbsp; <a href="htt
 
 
 
-The fortunes slack app is free, and does not make use of your user information.
+The Daily Proverbs slack app is free, and does not make use of your user information.
