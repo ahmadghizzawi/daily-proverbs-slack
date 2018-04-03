@@ -57,7 +57,7 @@ process.on('uncaughtException', (err) => {
   winston.log('crit', err.stack);
 });
 
-app.listen(process.env.LISTENER_PORT, () => {
-  winston.log('info', `App is listening on port ${process.env.LISTENER_PORT}`);
+app.listen(process.env.PORT, () => {
+  winston.log('info', `App is listening on port ${process.env.PORT}`);
   scheduleJobs();
 });
