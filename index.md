@@ -27,3 +27,6 @@ You live in Beirut, Lebanon and you currently have an offset of +02:00 UTC. If y
 
 `/proverb-daily 13:00 +02:00`.
 
+
+#### To display help:
+`\proverb-daily`
