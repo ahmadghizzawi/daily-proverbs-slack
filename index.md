@@ -15,6 +15,9 @@ alt="Slack Logo" width="139" height="40"/> &nbsp;&nbsp;&nbsp;&nbsp; <a href="htt
 The Daily Proverbs slack app is free, and does not make use of your user information.
 
 ## Commands
+#### To display a random proverb in channel:
 `\proverb`
 
-`\proverb-daily`
+#### To display a random proverb in channel every day at a specific time:
+`\proverb-daily [time] [UTC offset]`
+
