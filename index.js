@@ -58,6 +58,6 @@ process.on('uncaughtException', (err) => {
 });
 
 app.listen(process.env.PORT, () => {
-  winston.log('info', `App is listening on port ${process.env.LISTENER_PORT}`);
+  winston.log('info', `App is listening on port ${process.env.PORT}`);
   scheduleJobs();
 });
