@@ -19,7 +19,7 @@ async function loadProverbs() {
   // TODO: Load data from DB instead for file.
   // Read the json file that has the proverbs.
   // The will return an array of proverbs.
-  return JSON.parse(readFile('data.json', 'utf8'));
+  return JSON.parse(await readFile('data.json', 'utf8'));
 }
 
 module.exports = {
