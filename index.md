@@ -1,6 +1,7 @@
-[Slack App]() | [Support](support.html) | [Privacy Policy](privacy.html)
 
-<img src="quote.png" alt="App Logo" width="139"/>
+
+<img src="quote.png" alt="App Logo" width="50"/> | [Slack App]() | [Support](support.html) | [Privacy Policy](privacy.html)
+
 # Daily Proverbs
 
 ![banner](banner1.png)
