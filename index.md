@@ -16,4 +16,5 @@ The Daily Proverbs slack app is free, and does not make use of your user informa
 
 ## Commands
 `\proverb`
+
 `\proverb-daily`
