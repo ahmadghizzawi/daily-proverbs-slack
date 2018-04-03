@@ -1,3 +1,5 @@
+[Slack App]() | [Support](support.html) | [Privacy Policy](privacy.html)
+
 # Daily Proverbs
 ![banner](banner1.png)
 
