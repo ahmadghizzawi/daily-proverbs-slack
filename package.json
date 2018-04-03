@@ -5,7 +5,8 @@
   "scripts": {
     "start": "pm2 start ecosystem.config.js --watch --env dev",
     "lint-staged": "lint-staged",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "test": "mocha"
   },
   "dependencies": {
     "@google-cloud/storage": "^1.6.0",
@@ -35,11 +36,13 @@
     "winston": "^2.4.1"
   },
   "devDependencies": {
+    "chai": "^4.1.2",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.10.0",
     "husky": "^0.14.3",
     "lint-staged": "^4.3.0",
+    "mocha": "^5.0.5",
     "pre-commit": "^1.2.2",
     "precommit-hook": "^3.0.0"
   },

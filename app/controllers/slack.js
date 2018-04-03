@@ -72,6 +72,8 @@ async function authorize(req, res) {
 
     const authResponse = JSON.parse(await request(options));
 
+    console.log('authResponse', authResponse);
+
     // Channel Id that app was given permission to post on.
     const channelId = authResponse.incoming_webhook.channel_id;
 
@@ -88,7 +90,7 @@ async function authorize(req, res) {
     };
 
     const teamBody = JSON.parse(await request(options));
-    console.log(teamBody);
+    console.log('teamBody', teamBody);
     if (teamBody.error === 'missing_scope') {
       res.send('Daily Proverbs has been added to your team!');
     } else {
@@ -107,11 +109,14 @@ async function authorize(req, res) {
           channelId,
         },
       };
+      console.log('update', update);
       options = { upsert: true, new: true };
       try {
+        console.log('before query');
         // Find the document
         const result = await Team.findOneAndUpdate(query, update, options);
         console.log(result);
+        console.log('after query');
         res.redirect(`http://${team}.slack.com`);
       } catch (e) {
         res.send(e);
