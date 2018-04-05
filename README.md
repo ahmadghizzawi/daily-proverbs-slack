@@ -1,9 +1,18 @@
 # Daily Proverbs [![Build Status](https://travis-ci.org/ahmadghizzawi/daily-proverbs-slack.svg?branch=master)](https://travis-ci.org/ahmadghizzawi/daily-proverbs-slack)
 
-This is a work in progress.
+## About
+Daily proverbs is a Slack app that gets your team's day going with a few words of wisdom by sharing a collection well-known proverbs from different cultures along with their interpretations. 
 
-TODO:
+## Install 
+To install the Slack app, please visit http://ahmadghizzawi.me/daily-proverbs-slack/.
+
+## TODO
 - [ ] Add a comprehensive test suite for CI.
 - [ ] Refactor files to increase orthogonality.
 - [ ] Add 'Make Visible' button to proverbs retrieved by `/proverb` command. Currently, `/proverb` shares the proverb instantly.
 - [ ] Add functionality to disable daily proverbs. Example: `/proverbs-daily disable`.
+
+## Licenses and Disclaimer
+Content is released under Apache License 2.0. See [LICENSE](LICENSE) for complete details.
+
+
