@@ -5,4 +5,5 @@ This is a work in progress.
 TODO:
 - [ ] Add a comprehensive test suite for CI.
 - [ ] Refactor files to increase orthogonality.
-- [ ] Add 'Make Visible' button to proverbs retrieved by '/proverb' command. _Currently, '/proverb'_ shares the proverb instantly.
+- [ ] Add 'Make Visible' button to proverbs retrieved by `/proverb` command. Currently, `/proverb` shares the proverb instantly.
+- [ ] Add functionality to disable daily proverbs. Example: `/proverbs-daily disable`.
