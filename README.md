@@ -1,4 +1,4 @@
-# Daily Proverbs 📚 [![Build Status](https://travis-ci.org/ahmadghizzawi/daily-proverbs-slack.svg?branch=master)](https://travis-ci.org/ahmadghizzawi/daily-proverbs-slack)
+# Daily Proverbs 📜 [![Build Status](https://travis-ci.org/ahmadghizzawi/daily-proverbs-slack.svg?branch=master)](https://travis-ci.org/ahmadghizzawi/daily-proverbs-slack)
 ![banner](banner1.png)
 ## About
 Daily proverbs is a Slack app that gets your team's day going with a few words of wisdom by sharing a collection 
